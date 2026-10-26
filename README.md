@@ -133,5 +133,4 @@ paste user input into the SQL string.**
 | Library | Why we use it | License |
 |---------|---------------|---------|
 | Flask | Web framework: routes, templates, login sessions | BSD-3-Clause |
-| Werkzeug (comes with Flask) | Password hashing and checking | BSD-3-Clause |
 | mysql-connector-python | Connects Python to MySQL | GPL-2.0 |

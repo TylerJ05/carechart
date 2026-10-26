@@ -11,7 +11,6 @@ raw-SQL debug panel.
 
 HOW THE SQL WORKS IN THIS FILE
 ------------------------------
-Every query is a TODO for us to write (course rule: we write our own SQL).
 Each route has a `sql = None` line with a comment saying what the query must
 do and which column names the HTML page expects back.
 
@@ -30,7 +29,6 @@ from functools import wraps
 
 import mysql.connector
 from flask import Flask, abort, flash, redirect, render_template, request, session, url_for
-from werkzeug.security import check_password_hash
 
 app = Flask(__name__)
 # Used to sign the login session cookie. Set SECRET_KEY in your environment.
@@ -160,7 +158,7 @@ def login():
 
         # TODO (SQL): Find the Staff member with this username.
         #   Param: username
-        #   Columns needed: staff_id, first_name, last_name, role, password_hash
+        #   Columns needed: staff_id, first_name, last_name, role, password
         sql = None
 
         if not sql:
@@ -168,7 +166,7 @@ def login():
             return render_template("login.html")
 
         staff = query_one(sql, (username,))
-        if staff and check_password_hash(staff["password_hash"], password):
+        if staff and staff["password"] == password:
             session.clear()
             session["staff_id"] = staff["staff_id"]
             session["role"] = staff["role"]

@@ -41,7 +41,7 @@ CREATE TABLE Department (
 --   email                  VARCHAR(100)  NOT NULL, UNIQUE
 --   phone                  VARCHAR(20)
 --   username               VARCHAR(30)   NOT NULL, UNIQUE
---   password_hash          VARCHAR(255)  NOT NULL
+--   password               VARCHAR(255)  NOT NULL
 -- ---------------------------------------------------------------------------
 -- TODO: CREATE TABLE Staff
 CREATE TABLE Staff (
@@ -53,7 +53,7 @@ CREATE TABLE Staff (
     email VARCHAR(100) NOT NULL UNIQUE,
     phone VARCHAR(20),
     username VARCHAR(30) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     CHECK (role IN ('Doctor', 'Nurse')),
     FOREIGN KEY (department_id) REFERENCES Department(department_id)
 );

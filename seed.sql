@@ -35,25 +35,18 @@ INSERT INTO Department (name, floor) VALUES
 -- ---------------------------------------------------------------------------
 -- 2. Staff
 -- Every test account uses the password:  password123
--- The long scrypt:... text is that password turned into a hash, so the
--- real password is never stored. Flask's werkzeug library made it.
--- (The same hash works for every row because it is the same password.)
+-- (Passwords are stored as plain text to keep this school project simple.
+--  A real hospital system would store hashed passwords instead.)
 -- ---------------------------------------------------------------------------
-INSERT INTO Staff (first_name, last_name, role, department_id, email, phone, username, password_hash) VALUES
+INSERT INTO Staff (first_name, last_name, role, department_id, email, phone, username, password) VALUES
 -- Doctors
-('Sarah', 'Smith', 'Doctor', 1, 'ssmith@carechart.test', '203-555-0101', 'drsmith',
- 'scrypt:32768:8:1$fVsaMO3At724CJpR$7227cc757f5af2b153dbe084a7a4baae5f7a38aa7e40e841c01844adb6091fa039e67370e08bb231c8d066a051b0185e934014f9ef8d1123aac30af1ba026487'),  -- staff_id 1
-('James', 'Patel', 'Doctor', 2, 'jpatel@carechart.test', '203-555-0102', 'drpatel',
- 'scrypt:32768:8:1$fVsaMO3At724CJpR$7227cc757f5af2b153dbe084a7a4baae5f7a38aa7e40e841c01844adb6091fa039e67370e08bb231c8d066a051b0185e934014f9ef8d1123aac30af1ba026487'),  -- staff_id 2
-('Maria', 'Lopez', 'Doctor', 3, 'mlopez@carechart.test', '203-555-0103', 'drlopez',
- 'scrypt:32768:8:1$fVsaMO3At724CJpR$7227cc757f5af2b153dbe084a7a4baae5f7a38aa7e40e841c01844adb6091fa039e67370e08bb231c8d066a051b0185e934014f9ef8d1123aac30af1ba026487'),  -- staff_id 3
+('Sarah', 'Smith', 'Doctor', 1, 'ssmith@carechart.test', '203-555-0101', 'drsmith', 'password123'),  -- staff_id 1
+('James', 'Patel', 'Doctor', 2, 'jpatel@carechart.test', '203-555-0102', 'drpatel', 'password123'),  -- staff_id 2
+('Maria', 'Lopez', 'Doctor', 3, 'mlopez@carechart.test', '203-555-0103', 'drlopez', 'password123'),  -- staff_id 3
 -- Nurses
-('Emily', 'Lee',   'Nurse',  1, 'elee@carechart.test',   '203-555-0201', 'nlee',
- 'scrypt:32768:8:1$fVsaMO3At724CJpR$7227cc757f5af2b153dbe084a7a4baae5f7a38aa7e40e841c01844adb6091fa039e67370e08bb231c8d066a051b0185e934014f9ef8d1123aac30af1ba026487'),  -- staff_id 4
-('David', 'Brown', 'Nurse',  2, 'dbrown@carechart.test', '203-555-0202', 'nbrown',
- 'scrypt:32768:8:1$fVsaMO3At724CJpR$7227cc757f5af2b153dbe084a7a4baae5f7a38aa7e40e841c01844adb6091fa039e67370e08bb231c8d066a051b0185e934014f9ef8d1123aac30af1ba026487'),  -- staff_id 5
-('Grace', 'Kim',   'Nurse',  3, 'gkim@carechart.test',   '203-555-0203', 'nkim',
- 'scrypt:32768:8:1$fVsaMO3At724CJpR$7227cc757f5af2b153dbe084a7a4baae5f7a38aa7e40e841c01844adb6091fa039e67370e08bb231c8d066a051b0185e934014f9ef8d1123aac30af1ba026487');  -- staff_id 6
+('Emily', 'Lee',   'Nurse',  1, 'elee@carechart.test',   '203-555-0201', 'nlee', 'password123'),  -- staff_id 4
+('David', 'Brown', 'Nurse',  2, 'dbrown@carechart.test', '203-555-0202', 'nbrown', 'password123'),  -- staff_id 5
+('Grace', 'Kim',   'Nurse',  3, 'gkim@carechart.test',   '203-555-0203', 'nkim', 'password123');  -- staff_id 6
 
 
 -- ---------------------------------------------------------------------------
