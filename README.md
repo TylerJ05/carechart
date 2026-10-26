@@ -13,7 +13,6 @@ carechart/
 ├── app.py              # All routes (screens) and the database helpers
 ├── schema.sql          # CREATE TABLE statements for our 9 tables
 ├── seed.sql            # Fake data to fill the tables
-├── make_hash.py        # Makes password hashes for staff logins in seed.sql
 ├── requirements.txt    # Python packages
 ├── static/style.css    # Page styling
 └── templates/          # One HTML page per screen

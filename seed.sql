@@ -35,7 +35,8 @@ INSERT INTO Department (name, floor) VALUES
 -- ---------------------------------------------------------------------------
 -- 2. Staff
 -- Every test account uses the password:  password123
--- The long scrypt:... text is that password run through make_hash.py.
+-- The long scrypt:... text is that password turned into a hash, so the
+-- real password is never stored. Flask's werkzeug library made it.
 -- (The same hash works for every row because it is the same password.)
 -- ---------------------------------------------------------------------------
 INSERT INTO Staff (first_name, last_name, role, department_id, email, phone, username, password_hash) VALUES
