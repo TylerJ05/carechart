@@ -159,7 +159,7 @@ def login():
         # TODO (SQL): Find the Staff member with this username.
         #   Param: username
         #   Columns needed: staff_id, first_name, last_name, role, password
-        sql = None
+        sql = "SELECT staff_id, first_name, last_name, role, password FROM Staff WHERE username = %s"
 
         if not sql:
             flash("The login query hasn't been written yet (see the TODO in login() in app.py).", "warning")
