@@ -1,8 +1,7 @@
 -- ============================================================================
 -- CareChart - Seed Data (all made up, no real patients)
 -- ============================================================================
--- Run AFTER schema.sql:   mysql -u root -p < seed.sql
---
+
 -- Seed data does NOT need its own tables. It is just INSERT statements that
 -- put fake rows into the same 9 tables that schema.sql created.
 --

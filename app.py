@@ -156,7 +156,7 @@ def login():
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "")
 
-        # TODO (SQL): Find the Staff member with this username.
+        # Section
         #   Param: username
         #   Columns needed: staff_id, first_name, last_name, role, password
         sql = "SELECT staff_id, first_name, last_name, role, password FROM Staff WHERE username = %s"
