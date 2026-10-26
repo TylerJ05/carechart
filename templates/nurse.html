@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}My Patients{% endblock %}
+{% block content %}
+<h1>My Assigned Patients</h1>
+<div class="card">
+  <table>
+    <thead>
+      <tr><th>Patient</th><th>Room</th><th>Severity</th><th>Allergies</th><th>Last Vitals</th><th></th></tr>
+    </thead>
+    <tbody>
+      {% for p in patients %}
+        <tr>
+          <td>{{ p.first_name }} {{ p.last_name }}</td>
+          <td>{{ p.room_number }}</td>
+          <td><span class="sev sev-{{ p.level_name|lower }}">{{ p.level_name }}</span></td>
+          <td>{{ p.allergies }}</td>
+          <td>{{ fmt_dt(p.last_vitals) if p.last_vitals else 'None yet' }}</td>
+          <td><a class="link" href="{{ url_for('patient_chart', admission_id=p.admission_id) }}">Open Chart</a></td>
+        </tr>
+      {% else %}
+        <tr><td colspan="6" class="empty">No patients to show yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

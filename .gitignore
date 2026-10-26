@@ -1,0 +1,12 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node (only used for the npm start shortcut)
+node_modules/
+
+# Secrets and system files
+.env
+.DS_Store
+Thumbs.db

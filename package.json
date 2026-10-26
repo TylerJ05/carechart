@@ -1,0 +1,8 @@
+{
+  "name": "carechart",
+  "private": true,
+  "description": "Shortcut so the Flask app can be started with npm on Mac or Windows. The app itself is Python.",
+  "scripts": {
+    "start": "node start.js"
+  }
+}

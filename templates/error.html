@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Database Error{% endblock %}
+{% block content %}
+<h1>Something went wrong</h1>
+<div class="card">
+  <p>The database returned an error. If you just submitted a form, check that the values are in range.</p>
+  <pre class="error">{{ message }}</pre>
+  <a class="btn" href="javascript:history.back()">Go back</a>
+</div>
+{% endblock %}

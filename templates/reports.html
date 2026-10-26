@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Reports{% endblock %}
+{% block content %}
+<h1>Reports</h1>
+
+<div class="card">
+  <h2>Patients Needing Vitals (none in the last 4 hours)</h2>
+  <table>
+    <thead><tr><th>Patient</th><th>Room</th><th>Severity</th><th></th></tr></thead>
+    <tbody>
+      {% for p in overdue %}
+        <tr>
+          <td>{{ p.first_name }} {{ p.last_name }}</td>
+          <td>{{ p.room_number }}</td>
+          <td><span class="sev sev-{{ p.level_name|lower }}">{{ p.level_name }}</span></td>
+          <td><a class="link" href="{{ url_for('patient_chart', admission_id=p.admission_id) }}">View Chart</a></td>
+        </tr>
+      {% else %}
+        <tr><td colspan="4" class="empty">Nothing to show yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h2>Current Patients by Department</h2>
+    <table>
+      <thead><tr><th>Department</th><th>Severity</th><th>Patients</th></tr></thead>
+      <tbody>
+        {% for r in census %}
+          <tr>
+            <td>{{ r.department }}</td>
+            <td><span class="sev sev-{{ r.level_name|lower }}">{{ r.level_name }}</span></td>
+            <td>{{ r.patient_count }}</td>
+          </tr>
+        {% else %}
+          <tr><td colspan="3" class="empty">Nothing to show yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Average Length of Stay</h2>
+    <table>
+      <thead><tr><th>Department</th><th>Average stay</th></tr></thead>
+      <tbody>
+        {% for r in stays %}
+          <tr><td>{{ r.department }}</td><td>{{ '%.1f'|format(r.avg_stay_days|float) }} days</td></tr>
+        {% else %}
+          <tr><td colspan="2" class="empty">Nothing to show yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

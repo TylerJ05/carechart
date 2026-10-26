@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Write Prescription{% endblock %}
+{% block content %}
+<h1>Write Prescription</h1>
+<div class="card" style="max-width: 560px;">
+  <form method="post">
+    <div class="fields">
+      <div class="full">
+        <label for="medication_id">Medication</label>
+        <select id="medication_id" name="medication_id" required>
+          <option value="">Choose a medication</option>
+          {% for m in medications %}
+            <option value="{{ m.medication_id }}">{{ m.name }} ({{ m.dosage_unit }})</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div><label for="dose">Dose</label><input id="dose" name="dose" type="number" step="0.01" min="0.01" required></div>
+      <div><label for="frequency">Frequency</label><input id="frequency" name="frequency" placeholder="Every 8 hours" required></div>
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Save Prescription</button>
+      <a class="btn navy" href="{{ url_for('patient_chart', admission_id=admission_id) }}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
