@@ -3,7 +3,7 @@ CareChart - patient care system for doctors and nurses.
 CSC335 Database Systems final project
 Tyler Jackson and Tony Branham-Wiggins
 
-Built from the professor's Flask + MySQL sample.
+Built from the Flask + MySQL sample.
 All queries use %s placeholders to prevent SQL injection.
 """
 
